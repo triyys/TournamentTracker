@@ -25,6 +25,10 @@ namespace TrackerUI
             WireUpLists();
         }
 
+        /// <summary>
+        /// Load từ database Team và Prize khi form này hiện lên
+        /// và khi hoàn thành việc thêm Prize hoặc Team
+        /// </summary>
         private void WireUpLists()
         {
             selectTeamDropDown.DataSource = null;
@@ -107,40 +111,72 @@ namespace TrackerUI
 
         private void createTournamentButton_Click(object sender, EventArgs e)
         {
-            // Validate data
-            bool feeAcceptable = decimal.TryParse(entryFeeValue.Text, out decimal fee);
+            if (ValidateForm())
+            {
+                // Create our tournament model
+                TournamentModel tm = new TournamentModel();
 
-            if (!feeAcceptable)
+                tm.TournamentName = tournamentNameValue.Text;
+                tm.EntryFee = int.Parse(entryFeeValue.Text);
+                tm.Prizes = selectedPrizes;
+                tm.EnteredTeams = selectedTeams;
+
+                // TODO - Wire our matchups
+                TournamentLogic.CreateRounds(tm);
+
+                // Create Tournament entry
+                // Create all of the prizes entries
+                // Create all of team entries
+                GlobalConfig.Connection.CreateTournament(tm);
+
+                //tm.AlertUsersToNewRound();
+
+                TournamentViewerForm frm = new TournamentViewerForm(tm);
+                frm.Show();
+                this.Close();
+            }
+        }
+
+        /// <summary>
+        /// Valid các trường thông tin cho một Tournament
+        /// </summary>
+        /// <returns>Show a message box if false</returns>
+        private bool ValidateForm()
+        {
+            bool feeValid = decimal.TryParse(entryFeeValue.Text, out decimal fee);
+
+            if (tournamentNameValue.Text == "")
+            {
+                MessageBox.Show("The tournament needs a name.");
+
+                return false;
+            }
+
+            if (!feeValid || fee < 0)
             {
                 MessageBox.Show("You need to enter a valid Entry Fee.",
                     "Invalid Fee",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-                return;
+
+                return false;
             }
 
-            // Create our tournament model
-            TournamentModel tm = new TournamentModel();
+            if (selectedPrizes.Count == 0)
+            {
+                MessageBox.Show("The tournament needs at least a prize.");
 
-            tm.TournamentName = tournamentNameValue.Text;
-            tm.EntryFee = fee;
+                return false;
+            }
 
-            tm.Prizes = selectedPrizes;
-            tm.EnteredTeams = selectedTeams;
+            if (selectedTeams.Count < 2)
+            {
+                MessageBox.Show("The tournament needs at least two teams.");
 
-            // TODO - Wire our matchups
-            TournamentLogic.CreateRounds(tm);
+                return false;
+            }
 
-            // Create Tournament entry
-            // Create all of the prizes entries
-            // Create all of team entries
-            GlobalConfig.Connection.CreateTournament(tm);
-
-            //tm.AlertUsersToNewRound();
-
-            TournamentViewerForm frm = new TournamentViewerForm(tm);
-            frm.Show();
-            this.Close();
+            return true;
         }
     }
 }

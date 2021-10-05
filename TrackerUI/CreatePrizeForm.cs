@@ -52,47 +52,42 @@ namespace TrackerUI
         }
         private bool ValidateForm()
         {
-            bool output = true; // nen de true truc vi` day la` TH xay ra thuong` xuyen nhat
-            int placeNumber = 0;
-            bool placeNumberValidNumber = int.TryParse(placeNumberValue.Text, out placeNumber);
+            bool placeNumberValidNumber = int.TryParse(placeNumberValue.Text, out int placeNumber);
 
             if (!placeNumberValidNumber)
             {
-                output = false;
+                return false;
             }
 
             if (placeNumber < 1)
             {
-                output = false;
+                return false;
             }
 
             if (placeNameValue.Text.Length == 0)
             {
-                output = false;
+                return false;
             }
 
-            decimal prizeAmount = 0;
-            double prizePercentage = 0;
-
-            bool prizeAmountValid = decimal.TryParse(prizeAmountValue.Text, out prizeAmount);
-            bool prizePercentageValid = double.TryParse(prizePercentageValue.Text, out prizePercentage);
+            bool prizeAmountValid = decimal.TryParse(prizeAmountValue.Text, out decimal prizeAmount);
+            bool prizePercentageValid = double.TryParse(prizePercentageValue.Text, out double prizePercentage);
 
             if (!prizeAmountValid || !prizePercentageValid)
             {
-                output = false;
+                return false;
             }
 
             if (prizeAmount <= 0 && prizePercentage <= 0)
             {
-                output = false;
+                return false;
             }
 
             if (prizePercentage < 0 || prizePercentage > 100)
             {
-                output = false;
+                return false;
             }
 
-            return output;
+            return true; // nen de true truc vi` day la` TH xay ra thuong` xuyen nhat
         }
     }
 }

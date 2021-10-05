@@ -166,11 +166,8 @@ namespace TrackerUI
         {
             string output = "";
 
-            double teamOneScore = 0;
-            double teamTwoScore = 0;
-
-            bool scoreOneValid = double.TryParse(teamOneScoreValue.Text, out teamOneScore);
-            bool scoreTwoValid = double.TryParse(teamTwoScoreValue.Text, out teamTwoScore);
+            bool scoreOneValid = double.TryParse(teamOneScoreValue.Text, out double teamOneScore);
+            bool scoreTwoValid = double.TryParse(teamTwoScoreValue.Text, out double teamTwoScore);
 
             if (!scoreOneValid)
             {

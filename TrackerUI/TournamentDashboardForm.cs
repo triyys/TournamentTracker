@@ -37,9 +37,16 @@ namespace TrackerUI
 
         private void loadTournamentButton_Click(object sender, EventArgs e)
         {
-            TournamentModel tm = (TournamentModel)loadExistTournamentDropDown.SelectedItem;
-            TournamentViewerForm frm = new TournamentViewerForm(tm);
-            frm.Show();
+            if (loadExistTournamentDropDown.SelectedItem != null)
+            {
+                TournamentModel tm = (TournamentModel)loadExistTournamentDropDown.SelectedItem;
+                TournamentViewerForm frm = new TournamentViewerForm(tm);
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select a tournament or create one.");
+            }
         }
     }
 }
