@@ -30,7 +30,7 @@ namespace TrackerLibrary
 
         public static void UpdateTournamentResults(TournamentModel model)
         {
-            int startingRound = model.CheckCurrentRound();
+            //int startingRound = model.CheckCurrentRound();
 
             List<MatchupModel> toScore = new List<MatchupModel>();
 
@@ -50,12 +50,12 @@ namespace TrackerLibrary
             AdvanceWinners(toScore, model);
 
             toScore.ForEach(x => GlobalConfig.Connection.UpdateMatchup(x));
-            int endingRound = model.CheckCurrentRound();
+            //int endingRound = model.CheckCurrentRound();
 
-            if (endingRound > startingRound)
-            {
-                model.AlertUsersToNewRound();
-            }
+            //if (endingRound > startingRound)
+            //{
+            //    model.AlertUsersToNewRound();
+            //};
         }
 
         public static void AlertUsersToNewRound(this TournamentModel model)

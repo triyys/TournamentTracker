@@ -108,9 +108,7 @@ namespace TrackerUI
         private void createTournamentButton_Click(object sender, EventArgs e)
         {
             // Validate data
-            decimal fee = 0;
-
-            bool feeAcceptable = decimal.TryParse(entryFeeValue.Text, out fee);
+            bool feeAcceptable = decimal.TryParse(entryFeeValue.Text, out decimal fee);
 
             if (!feeAcceptable)
             {
@@ -138,7 +136,7 @@ namespace TrackerUI
             // Create all of team entries
             GlobalConfig.Connection.CreateTournament(tm);
 
-            tm.AlertUsersToNewRound();
+            //tm.AlertUsersToNewRound();
 
             TournamentViewerForm frm = new TournamentViewerForm(tm);
             frm.Show();
