@@ -53,7 +53,7 @@ namespace TrackerUI
 
         private void createMemberButton_Click(object sender, EventArgs e)
         {
-            if (ValidateForm())
+            if (ValidateMemberSubForm())
             {
                 PersonModel p = new PersonModel();
 
@@ -78,8 +78,7 @@ namespace TrackerUI
                 MessageBox.Show("You need to fill in all of fields.");
             }
         }
-
-        private bool ValidateForm()
+        private bool ValidateMemberSubForm()
         {
             // TODO - Valid email co .com ko, valid phone number dung so ko
             if (firstNameValue.Text.Length == 0)
