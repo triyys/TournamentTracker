@@ -7,3 +7,12 @@ C:\Users\MyPC\Documents\Visual Studio 2017\C#Projects\TournamentTracker\TrackerL
 C:\Users\MyPC\Documents\Visual Studio 2017\C#Projects\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csprojAssemblyReference.cache
 C:\Users\MyPC\Documents\Visual Studio 2017\C#Projects\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CoreCompileInputs.cache
 C:\Users\MyPC\Documents\Visual Studio 2017\C#Projects\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CopyComplete
+D:\VS2019\TournamentTracker\TrackerLibrary\bin\Debug\TrackerLibrary.dll
+D:\VS2019\TournamentTracker\TrackerLibrary\bin\Debug\TrackerLibrary.pdb
+D:\VS2019\TournamentTracker\TrackerLibrary\bin\Debug\Dapper.dll
+D:\VS2019\TournamentTracker\TrackerLibrary\bin\Debug\Dapper.xml
+D:\VS2019\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.AssemblyReference.cache
+D:\VS2019\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CoreCompileInputs.cache
+D:\VS2019\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CopyComplete
+D:\VS2019\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.dll
+D:\VS2019\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.pdb
