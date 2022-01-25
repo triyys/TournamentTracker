@@ -13,8 +13,6 @@ namespace TrackerLibrary.DataAccess.TextHelpers // vi de phan biet voi SqlConnec
     {
         public static string FullFilePath(this string fileName) // PrizeModels.csv
         {
-            // C:\Users\MyPC\Documents\Visual Studio 2017
-            // \SQLserverProjects\TournamentTrackerDatabase\TextfileStored
             return $"{ ConfigurationManager.AppSettings["filePath"] }\\{ fileName }";
         }
 
