@@ -9,7 +9,7 @@ using TrackerLibrary.Models;
 
 namespace TrackerLibrary.DataAccess.TextHelpers // vi de phan biet voi SqlConnector
 {
-    public static class TextConnectorProcessor
+    internal static class TextConnectorProcessor
     {
         public static string FullFilePath(this string fileName) // PrizeModels.csv
         {
